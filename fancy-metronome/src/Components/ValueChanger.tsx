@@ -12,8 +12,8 @@ interface Props {
 
 const ValueChanger: React.FC<Props> = ({name, onChangeMethod, type, value}) => {
 
-    const increment = () => onChangeMethod(value+1);
-    const decrement = () => onChangeMethod(value-1);
+    const increment = () => onChangeMethod(value+5);
+    const decrement = () => onChangeMethod(value-5);
 
     return (
         <div>
