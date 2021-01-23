@@ -1,23 +1,52 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState, useEffect } from "react";
+import Metronome from "simple-beats";
+import "./App.css";
+import ValueChanger from "./Components/ValueChanger.tsx";
 
 function App() {
+  const [isPlaying, setPlaying] = useState(false);
+  const [BPM, setBPM] = useState(90);
+  const [frequency, setFrequency] = useState(220);
+  const [oscillatorType, setOscillatorType] = useState("sine");
+  const metronome = new Metronome(40, 220);
+
+  const HandlePlayingChange = () => {
+    console.log(isPlaying);
+    if (isPlaying) {
+      metronome.stop();
+      setPlaying(false);
+    } else if (!isPlaying) {
+      metronome.start();
+      setPlaying(true);
+    }
+  };
+
+  const HandleBPMChange = (e) => {
+    metronome.BPM = e;
+    console.log(metronome._BPM);
+    setBPM(e);
+  };
+
+  
+  const HandleFrequencyChange = (e) => {
+    metronome.frequency = frequency;
+    setFrequency(e);
+    console.log(metronome._frequency)
+  };
+
+  const HandleOscillatorTypeChange = (e) => {
+    setOscillatorType(e);
+    metronome.OscillatorType = oscillatorType;
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className="metronome_player">
+        <button onClick={HandlePlayingChange}>play</button>
+        <ValueChanger onChangeMethod={HandleBPMChange} name={"BPM"}  value={BPM} />
+        <ValueChanger onChangeMethod={HandleFrequencyChange} name={"Frequency"} value={frequency} />
+        <ValueChanger onChangeMethod={HandleOscillatorTypeChange} name={"OscillatorType"} value={oscillatorType}></ValueChanger>
+      </div>
     </div>
   );
 }
