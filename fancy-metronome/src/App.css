@@ -1,3 +1,8 @@
+body {
+  font-size: 25px; /* Change font and see the magic! */
+  color: #f07; /* Change color and see the magic! */
+}
+
 .App {
   width: 100%;
   height: 100vh;
@@ -7,7 +12,34 @@
   justify-content: center;
 }
 
-metronome_player{ 
+.metronome_player {
+  border: 1px solid black;
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
+  padding: 0.2em;
+}
+
+/* RESPONSIVE ARROWS */
+[class^="arr-"] {
+  border: solid currentColor;
+  border-width: 0 0.2em 0.2em 0;
+  display: inline-block;
+  padding: 0.2em;
+}
+.arr-right {
+  transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+}
+.arr-left {
+  transform: rotate(135deg);
+  -webkit-transform: rotate(135deg);
+}
+.arr-up {
+  transform: rotate(-135deg);
+  -webkit-transform: rotate(-135deg);
+}
+.arr-down {
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
 }

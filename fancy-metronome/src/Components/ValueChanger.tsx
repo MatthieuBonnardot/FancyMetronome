@@ -1,28 +1,52 @@
-import {useState} from 'react';
-import './ValueChanger.css';
+import "./ValueChanger.css";
 
 interface Props {
-    name: string,
-    onChangeMethod: Function,
-    type: string,
-    value: number
+  name: string;
+  onChangeMethod: Function;
+  value: number;
+  minValue: number;
+  maxValue: number;
 }
 
+const ValueChanger: React.FC<Props> = ({
+  name,
+  onChangeMethod,
+  value,
+  minValue,
+  maxValue,
+}) => {
+  const increment = () => {
+    switch (name) {
+      case "GAIN":
+        if (value < 1) onChangeMethod(Number((value + 0.1).toFixed(1)));
+        break;
 
+      default:
+        if (!(value > maxValue)) onChangeMethod(value + 5);
+        break;
+    }
+  };
 
-const ValueChanger: React.FC<Props> = ({name, onChangeMethod, type, value}) => {
+  const decrement = () => {
+    switch (name) {
+      case "GAIN":
+        if (value > 0) onChangeMethod(Number((value - 0.1).toFixed(1)));
+        break;
 
-    const increment = () => onChangeMethod(value+5);
-    const decrement = () => onChangeMethod(value-5);
+      default:
+        if (!(value < minValue)) onChangeMethod(value - 5);
+        break;
+    }
+  };
 
-    return (
-        <div>
-            <h1>{name}</h1>
-            <button onClick={() => increment()}>:arrow-up</button>
-            <p>{value}</p>
-            <button onClick={() => decrement()}>:arrow-down</button>
-        </div>
-    )
-}
+  return (
+    <div className="ValueChanger">
+      <i className="arr-up" onClick={() => increment()}></i>
+      <p>{name}</p>
+      <p>{value}</p>
+      <i className="arr-down" onClick={() => decrement()}></i>
+    </div>
+  );
+};
 
-export default ValueChanger
+export default ValueChanger;
