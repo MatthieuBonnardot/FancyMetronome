@@ -1,3 +1,84 @@
 $font-stack: "Nunito", sans-serif;
-$primary-color: #white;
-$secondary-color: #black;
+$primary-color: white;
+$secondary-color: black;
+
+.App {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.main {
+  width: 50vw;
+  height: 30vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.changers {
+  display: flex;
+  background-color: $primary-color;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 20vh;
+  width: 50vw;
+  margin-left: 1em;
+  border-radius: 30px 60px 90px;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+  h3 {
+    margin-right: 1em;
+    font-size: 15px;
+    background: -webkit-linear-gradient(#eee, blue);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-family: "Nunito", sans-serif;
+  }
+
+  p {
+    margin-top: -0.6em;
+    margin-right: 1em;
+    font-size: 22px;
+    background: -webkit-linear-gradient(#eee, $secondary-color);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-family: "Nunito", sans-serif;
+  }
+}
+
+.changer {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-items: center;
+  text-align: center;
+
+  i {
+    font-size: 1.5em;
+    margin-right: 1em;
+  }
+}
+
+.playBTN {
+  position: relative;
+  left: 5em;
+  outline: none;
+  background-color: black;
+  width: 120px;
+  height: 100px;
+  border-radius: 50%;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+  i {
+    font-size: 30px;
+    color: white;
+  }
+}
