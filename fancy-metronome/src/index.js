@@ -6,7 +6,9 @@ import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <App DefaultBPM={90} DefaultFreq={200} DefaultGain={0} SoundClip="https://oramics.github.io/sampled/DM/LM-2/samples/cowb.wav"/>
+    <App DefaultBPM={90} DefaultFreq={200} DefaultGain={0} SoundClip="https://oramics.github.io/sampled/DM/LM-2/samples/clap.wav"/>
+    <App DefaultBPM={90} DefaultFreq={200} DefaultGain={0} SoundClip="https://oramics.github.io/sampled/DM/LM-2/samples/cowb.wav"/>
   </React.StrictMode>,
   document.getElementById('root')
 );

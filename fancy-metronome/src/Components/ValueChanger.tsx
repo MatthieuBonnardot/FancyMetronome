@@ -40,11 +40,11 @@ const ValueChanger: React.FC<Props> = ({
   };
 
   return (
-    <div className="ValueChanger">
-      <i className="arr-up" onClick={() => increment()}></i>
-      <p>{name}</p>
+    <div className="changer">
+      <i className="fas fa-angle-up" onClick={() => increment()}></i>
+      <h3>{name}</h3>
       <p>{value}</p>
-      <i className="arr-down" onClick={() => decrement()}></i>
+      <i className="fas fa-angle-down" onClick={() => decrement()}></i>
     </div>
   );
 };
